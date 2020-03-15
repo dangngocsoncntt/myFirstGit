@@ -18,8 +18,11 @@ function dSCHList(_opts) {
 	this.load=doLoad;
 	var checkRequired;
 	var _newVariable = "0"; 
+	var ahichic = 1; 
 	
-	function doLoad(_hosp_id) {
+	fuckboy1
+	
+	ction doLoad(_hosp_id) {
 		$.i18n().load(i18n_his.err_code);
 		$.i18n().load(i18n_his.com_msg);
 		$.i18n().load(i18n_ngoaitru.com_msg);
