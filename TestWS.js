@@ -14,6 +14,29 @@ function dSCHList(_opts) {
 	this.load=doLoad;
 	var checkRequired;
 	var _newVariable = "0"; 
+	var validatorTSGD = null;
+	var valid_ar = [];
+	var loai_nhom_id =-1;
+	var that=this;
+	this.load=doLoad;
+	var checkRequired;
+	var _newVariable = "0"; 
+	
+	var validatorTSGD = null;
+	var valid_ar = [];
+	var loai_nhom_id =-1;
+	var that=this;
+	this.load=doLoad;
+	var checkRequired;
+	var _newVariable = "0"; 
+	
+	var validatorTSGD = null;
+	var valid_ar = [];
+	var loai_nhom_id =-1;
+	var that=this;
+	this.load=doLoad;
+	var checkRequired;
+	var _newVariable = "0"; 
 	
 	function doLoad(_hosp_id) {
 		$.i18n().load(i18n_his.err_code);
