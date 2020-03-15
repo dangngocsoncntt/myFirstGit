@@ -13,7 +13,7 @@ function dSCHList(_opts) {
 	var that=this;
 	
 	
-	hihaidflkasjf 
+	hihanguyenvananguyen vanb nguyen van c
 	
 	this.load=doLoad;
 	var checkRequired;
