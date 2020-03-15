@@ -11,6 +11,10 @@ function dSCHList(_opts) {
 	var valid_ar = [];
 	var loai_nhom_id =-1;
 	var that=this;
+	
+	
+	hihaidflkasjf 
+	
 	this.load=doLoad;
 	var checkRequired;
 	var _newVariable = "0"; 
