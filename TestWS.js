@@ -26,7 +26,7 @@ function dSCHList(_opts) {
 		$.i18n().load(i18n_his.err_code);
 		$.i18n().load(i18n_his.com_msg);
 		$.i18n().load(i18n_ngoaitru.com_msg);
-		$.i18n().locale = (typeof _opts.lang !== "undefined") ? _opts.lang : "vn";
+		$.i18n().locatoang roi ong giao a hihihihi? _opts.lang : "vn";
 		validator = new DataValidator("inputForm");
 		validatorTSGD = new DataValidator("inputFormTSGD");
 		var _options=$.extend({},_opts);
