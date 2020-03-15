@@ -3,7 +3,7 @@ function dSCHList(_opts) {
 	var _user_id=-1;
 	var ahichic = 1; 
 	
-	
+	fuck bóadfsafsaf
 	function doLoad(_hosp_id) {
 		$.i18n().load(i18n_his.err_code);
 		$.i18n().load(i18n_his.com_msg);
