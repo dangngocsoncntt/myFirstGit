@@ -1,0 +1,128 @@
+
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id"
+	value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js"></script>
+<script type="text/javascript" src="../common/script/dbForm.js"></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js"></script>
+<script type="text/javascript" src="../common/script/DataValidator.js"></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js"></script>
+<script type="text/javascript" src="../common/script/AjaxService.js"></script>
+<script type="text/javascript"
+	src="../common/script/jquery/jquery.toaster.js"></script>
+<script type="text/javascript"
+	src="../common/script/jsdatetime/Scripts/DateTimePicker.js?v=20200311"></script>
+<script type="text/javascript"
+	src="../common/script/jquery/jquery.mask-plugin.min.js"></script>
+<script type="text/javascript"
+	src="../common/script/bootstrap/bootstrap3-typeahead.min.js"></script>
+<link rel="stylesheet" href="../common/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="../common/script/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../common/css/custom.css">
+<link rel="stylesheet" href="../ngoaitru/custom_ngt.css">
+<link rel="stylesheet" href="../common/css/css_style.css">
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css"
+	rel="stylesheet" />
+<script type="text/javascript"
+	src="../common/script/jquery.i18n/jquery.i18n.js"></script>
+<script type="text/javascript"
+	src="../common/script/jquery.i18n/jquery.i18n.messagestore.js"></script>
+
+
+<script type="text/javascript" src="../common/script/dialog/jBox.js" ></script>
+<link rel="stylesheet" href="../common/script/dialog/jBox.css">
+<script src="../common/script/jqgrid/js/context-menu.js"></script>
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet" />
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="../common/i18n/i18n-his.js"></script>
+<script type="text/javascript" src="../common/i18n/i18n-ngoaitru.js"></script>
+<script type="text/javascript" src="../common/script/UIUtil.js"></script>
+<script type="text/javascript" src="../common/script/moment.min.js"></script>
+<script src="../common/script/common.js"></script>
+<script src="../common/script/customjs.js?v=201901112"></script>
+<script type="text/javascript" src="../noitru/cominf.js?v=20200210" ></script>
+<script type="text/javascript"
+	src="../common/script/jquery.priceformat.2.0.min.js"></script>
+<script type="text/javascript" src="../ksk/TestWS.js?v=20200210"></script>
+<!-- <script type="text/javascript" src="../common/script/responsive-voice.js?v=202001103" ></script> -->
+<!-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=7e2UcYkO"></script> -->
+<script type="text/javascript" src="../common/script/responsivevoices.js?v=20200210" ></script>
+
+<div class="container" id="divMain">
+	<div id="inputForm" class="panel panel-default mgt5">
+		<div class="panel-body">
+				<div class="col-xs-12 mgt5">
+					<div class="col-xs-6 low-padding">
+						<input class="form-control input-sm"
+							id="txtGOIBENHNHAN" name="txtGOIBENHNHAN" placeholder="Nhập text để gọi">
+						</input>
+					</div>
+					<div class="col-xs-6 low-padding">
+						<select class="form-control input-sm" id="cboCACHGOI" style="width: 64%;">
+							<option value="1" selected>SPEECH SYNTHESIS</option>
+							<option value="2">RESPONSIVE VOICE</option>
+							<option value="3">RESPONSIVE VOICE API</option>
+						</select> 
+					</div>
+				</div>	
+				<div class="col-xs-12 low-padding mgt10 mgb10" style="text-align: center;">
+					<button type="button" class="btn btn-sm btn-primary" id="btnGOI">
+						<span class="glyphicon glyphicon-pencil"></span> Lấy kết quả
+					</button>
+					<button type="button" class="btn btn-sm btn-primary" id="btnDOITHANHCHU">
+						<span class="glyphicon glyphicon-pencil"></span> Đổi thành chữ
+					</button>
+				</div>
+		</div>		
+	</div>	
+	<div style="display:none;">
+      <label>Choose voice</label>
+      <select id="voices"></select>
+    </div>				
+</div>
+<script>
+	var opt = [];
+	var schema = '{db_schema}';
+	var hospital_id = '{hospital_id}';
+	var user_id = '{user_id}';
+	var user_type = '{user_type}';
+	var province_id = '{province_id}';
+	var uuid = '{uuid}';
+
+	console.log('hospital_id=' + hospital_id + ' user_type=' + user_type);
+	var session_par = [];
+	session_par[0] = hospital_id;
+	session_par[1] = user_id;
+	session_par[2] = user_type;
+	session_par[3] = province_id;
+	var table_name = '{table}';
+
+	initRest(uuid, "/vnpthis");
+	initAjax("/vnpthis");
+	ajaxSvc.register("PortalWS");
+	
+	parent.DlgUtil.tunnel(DlgUtil.moveEvent);
+	var _opts = new Object();
+	_opts._param = session_par;
+	_opts._uuid = uuid;
+	var DS = new dSCHList(_opts);
+	DS.load(hospital_id);
+</script>
+
+<script>
+
+	$(function(){	
+	  if ('speechSynthesis' in window) {
+		    speechSynthesis.onvoiceschanged = function() {
+		      var $voicelist = $('#voices');
+		    }
+	  } else {
+	    $('#modal1').openModal();
+	  }
+	});
+
+</script>
