@@ -3,8 +3,9 @@ function dSCHList(_opts) {
 	var _user_id=-1;
 	var ahichic = 1; 
 	
+	fuckboy1
 	
-	function doLoad(_hosp_id) {
+	ction doLoad(_hosp_id) {
 		$.i18n().load(i18n_his.err_code);
 		$.i18n().load(i18n_his.com_msg);
 		$.i18n().load(i18n_ngoaitru.com_msg);
