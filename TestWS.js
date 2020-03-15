@@ -1,19 +1,8 @@
 function dSCHList(_opts) {
 	
 	var _user_id=-1;
-	var _hospital_id;
-	flagLoading = false;
-	_param=[];
-	_cauhinhId = -1;
-	_loainhomId = -1;
-	var validator = null;
-	var validatorTSGD = null;
-	var valid_ar = [];
-	var loai_nhom_id =-1;
-	var that=this;
-	this.load=doLoad;
-	var checkRequired;
-	var _newVariable = "0"; 
+	var ahichic = 1; 
+	
 	
 	function doLoad(_hosp_id) {
 		$.i18n().load(i18n_his.err_code);
